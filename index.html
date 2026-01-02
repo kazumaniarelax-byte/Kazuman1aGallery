@@ -120,6 +120,16 @@ document.querySelectorAll('.gallery-grid .item img').forEach(img => {
     });
 });
 
+// モーダル表示
+document.querySelectorAll('.gallery-grid .item .image-wrap').forEach((wrap, index) => {
+    wrap.addEventListener('click', function() {
+        const img = this.querySelector('img');
+        document.getElementById('modal').style.display = 'block';
+        document.getElementById('modal-img').src = img.src;
+        currentIndex = index; // スワイプ用に index を記録
+    });
+});
+
 // モーダル閉じる
 document.querySelector('.close').addEventListener('click', function() {
     document.getElementById('modal').style.display = 'none';
@@ -137,13 +147,6 @@ let currentIndex = 0;
 
 // 画像リスト
 const images = Array.from(document.querySelectorAll('.gallery-grid .item img'));
-
-// モーダルを開くときに index を記録
-images.forEach((img, index) => {
-    img.addEventListener('click', function() {
-        currentIndex = index;
-    });
-});
 
 // スワイプ開始
 document.getElementById('modal').addEventListener('touchstart', function(e) {
