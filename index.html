@@ -112,33 +112,41 @@
 </div>
 
 <script>
-// モーダル表示（クリックは image-wrap のみに統一）
-document.querySelectorAll('.gallery-grid .item .image-wrap').forEach((wrap, index) => {
-    wrap.addEventListener('click', function() {
-        const img = this.querySelector('img');
-        document.getElementById('modal').style.display = 'block';
-        document.getElementById('modal-img').src = img.src;
-        currentIndex = index; // スワイプ用に index を記録
-    });
-});
-
-// モーダル閉じる
-document.querySelector('.close').addEventListener('click', function() {
-    document.getElementById('modal').style.display = 'none';
-});
-
-document.getElementById('modal').addEventListener('click', function(e) {
-    if (e.target === this) {
-        this.style.display = 'none';
-    }
-});
-
-// スワイプ処理
+// スワイプ処理用変数
 let startX = 0;
 let currentIndex = 0;
 
 // 画像リスト
 const images = Array.from(document.querySelectorAll('.gallery-grid .item img'));
+
+// モーダル表示（クリックは image-wrap のみに統一）
+document.querySelectorAll('.gallery-grid .item .image-wrap').forEach((wrap, index) => {
+    wrap.addEventListener('click', function() {
+        const img = this.querySelector('img');
+        const modal = document.getElementById('modal');
+
+        modal.style.display = 'block';
+        setTimeout(() => modal.classList.add('show'), 10);
+
+        document.getElementById('modal-img').src = img.src;
+        currentIndex = index;
+    });
+});
+
+// モーダル閉じる（×ボタン）
+document.querySelector('.close').addEventListener('click', function() {
+    const modal = document.getElementById('modal');
+    modal.classList.remove('show');
+    setTimeout(() => modal.style.display = 'none', 300);
+});
+
+// 背景クリックで閉じる
+document.getElementById('modal').addEventListener('click', function(e) {
+    if (e.target === this) {
+        this.classList.remove('show');
+        setTimeout(() => this.style.display = 'none', 300);
+    }
+});
 
 // スワイプ開始
 document.getElementById('modal').addEventListener('touchstart', function(e) {
@@ -168,20 +176,17 @@ function showPrevImage() {
     currentIndex = (currentIndex - 1 + images.length) % images.length;
     document.getElementById('modal-img').src = images[currentIndex].src;
 }
-	// キーボード操作（左右矢印で画像切り替え）
+
+// キーボード操作（左右矢印で画像切り替え）
 document.addEventListener('keydown', function(e) {
     const modal = document.getElementById('modal');
 
-    // モーダルが開いている時だけ反応
     if (modal.style.display === 'block') {
-        if (e.key === 'ArrowRight') {
-            showNextImage();
-        }
-        if (e.key === 'ArrowLeft') {
-            showPrevImage();
-        }
+        if (e.key === 'ArrowRight') showNextImage();
+        if (e.key === 'ArrowLeft') showPrevImage();
         if (e.key === 'Escape') {
-            modal.style.display = 'none';
+            modal.classList.remove('show');
+            setTimeout(() => modal.style.display = 'none', 300);
         }
     }
 });
