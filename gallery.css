@@ -120,9 +120,15 @@ body {
 
 /* モーダル画像 */
 #modal-img {
-    max-width: 90%;
-    max-height: 90%;
+    width: auto;
+    height: auto;
+    max-width: min(70vw, 900px);
+    max-height: 80vh;
     object-fit: contain;
+}
+
+    .modal-inner {
+    padding: 20px;
 }
 
 /* 閉じるボタン */
@@ -197,6 +203,7 @@ img {
 
 
 }
+
 
 
 
