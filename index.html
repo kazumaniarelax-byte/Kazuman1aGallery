@@ -112,15 +112,7 @@
 </div>
 
 <script>
-// モーダル表示
-document.querySelectorAll('.gallery-grid .item img').forEach(img => {
-    img.addEventListener('click', function() {
-        document.getElementById('modal').style.display = 'block';
-        document.getElementById('modal-img').src = this.src;
-    });
-});
-
-// モーダル表示
+// モーダル表示（クリックは image-wrap のみに統一）
 document.querySelectorAll('.gallery-grid .item .image-wrap').forEach((wrap, index) => {
     wrap.addEventListener('click', function() {
         const img = this.querySelector('img');
