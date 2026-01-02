@@ -70,7 +70,10 @@ body {
     justify-content: flex-end;
     padding: 20px;
     transition: opacity .4s ease;
+    backdrop-filter: blur(2px);
 }
+
+
 
 .item:hover .overlay {
     opacity: 1;
@@ -109,7 +112,10 @@ body {
 
 /* フェードイン時 */
 .modal.show {
+    visibility: visible;
     opacity: 1;
+
+
 }
 
 /* モーダル画像 */
@@ -139,9 +145,6 @@ body {
 
 }
 
-.modal.show {
-    opacity: 1;
-}
 /* 矢印ボタン */
 .arrow {
     position: absolute;
@@ -190,7 +193,10 @@ img {
 }
 
 .protect-layer {
-    pointer-events: none;
+    pointer-events: auto;
+
+
 }
+
 
 
