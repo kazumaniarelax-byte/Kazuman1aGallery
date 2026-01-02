@@ -184,6 +184,13 @@ body {
     font-family: 'Lora', serif; /* タイトルと統一感 */
 }
 
+img {
+    -webkit-touch-callout: none;
+    user-select: none;
+}
 
+.protect-layer {
+    pointer-events: none;
+}
 
 
