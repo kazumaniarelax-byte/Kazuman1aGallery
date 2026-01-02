@@ -122,8 +122,8 @@ body {
 #modal-img {
     width: auto;
     height: auto;
-    max-width: min(70vw, 900px);
-    max-height: min(80vh, 900px);
+    max-width: min(80vw, 1000px);
+    max-height: min(90vh, 1000);
     object-fit: contain;
 }
 
@@ -203,6 +203,7 @@ img {
 
 
 }
+
 
 
 
