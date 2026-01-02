@@ -168,6 +168,23 @@ function showPrevImage() {
     currentIndex = (currentIndex - 1 + images.length) % images.length;
     document.getElementById('modal-img').src = images[currentIndex].src;
 }
+	// キーボード操作（左右矢印で画像切り替え）
+document.addEventListener('keydown', function(e) {
+    const modal = document.getElementById('modal');
+
+    // モーダルが開いている時だけ反応
+    if (modal.style.display === 'block') {
+        if (e.key === 'ArrowRight') {
+            showNextImage();
+        }
+        if (e.key === 'ArrowLeft') {
+            showPrevImage();
+        }
+        if (e.key === 'Escape') {
+            modal.style.display = 'none';
+        }
+    }
+});
 </script>
 
 </body>
