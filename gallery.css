@@ -183,12 +183,7 @@ body {
     margin: -20px 0 50px; /* タイトルとの距離を調整 */
     font-family: 'Lora', serif; /* タイトルと統一感 */
 }
-.modal-inner {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-    height: 100%;
-}
+
+
 
 
