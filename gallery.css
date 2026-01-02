@@ -128,5 +128,39 @@ body {
 .modal.show {
     opacity: 1;
 }
+/* 矢印ボタン */
+.arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 48px;
+    color: rgba(255,255,255,0.8);
+    cursor: pointer;
+    padding: 20px;
+    user-select: none;
+    transition: color .2s ease;
+    z-index: 10000;
+}
+
+.arrow:hover {
+    color: #fff;
+}
+
+.left-arrow {
+    left: 20px;
+}
+
+.right-arrow {
+    right: 20px;
+}
+
+/* スマホ向けに少し大きく */
+@media (max-width: 600px) {
+    .arrow {
+        font-size: 60px;
+        padding: 30px;
+    }
+}
+
 
 
