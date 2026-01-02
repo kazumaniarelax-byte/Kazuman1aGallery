@@ -175,5 +175,13 @@ body {
         padding: 30px;
     }
 }
+.intro {
+    text-align: center;
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: #444;
+    margin: -20px 0 50px; /* タイトルとの距離を調整 */
+    font-family: 'Lora', serif; /* タイトルと統一感 */
+}
 
 
