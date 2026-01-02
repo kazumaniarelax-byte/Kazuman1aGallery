@@ -214,6 +214,9 @@ function showPrevImage() {
     document.getElementById('modal-img').src = images[currentIndex].src;
 }
 
+document.querySelector('.left-arrow').addEventListener('click', showPrevImage);
+document.querySelector('.right-arrow').addEventListener('click', showNextImage);
+	
 // キーボード操作（左右矢印で画像切り替え）
 document.addEventListener('keydown', function(e) {
     const modal = document.getElementById('modal');
