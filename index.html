@@ -167,10 +167,12 @@ let currentIndex = 0;
 const images = Array.from(document.querySelectorAll('.gallery-grid .item img'));
 
 // モーダル表示（クリックは image-wrap のみに統一）
-document.querySelectorAll('.gallery-grid .item .image-wrap').forEach((wrap, index) => {
-    wrap.addEventListener('click', function() {
+document.querySelectorAll('.gallery-grid .item').forEach((item, index) => {
+    item.addEventListener('click', function() {
         const img = this.querySelector('img');
-        const modal = document.getElementById('modal');
+        openModal(img.src, index);
+    });
+});
 
         modal.style.display = 'block';
         setTimeout(() => modal.classList.add('show'), 10);
