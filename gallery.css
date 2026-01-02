@@ -1,8 +1,11 @@
 /* 全体設定 */
 body {
-    font-family: 'Lora', serif;
+    font-family: 'Inter', sans-serif;
 }
 
+.title, .category, .overlay h2 {
+    font-family: 'Lora', serif;
+}
 /* タイトル */
 .title {
     text-align: center;
@@ -125,4 +128,5 @@ body {
 .modal.show {
     opacity: 1;
 }
+
 
