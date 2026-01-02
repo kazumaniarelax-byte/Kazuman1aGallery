@@ -92,13 +92,31 @@ body {
     display: none;
     position: fixed;
     z-index: 9999;
-    padding-top: 50px;
     left: 0;
     top: 0;
     width: 100%;
     height: 100%;
-    overflow: auto;
-    background-color: rgba(0,0,0,0.9);
+    background-color: rgba(0,0,0,0.8);
+
+    /* これが中央配置の決め手 */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+/* フェードイン時 */
+.modal.show {
+    opacity: 1;
+}
+
+/* モーダル画像 */
+#modal-img {
+    max-width: 90%;
+    max-height: 90%;
+    object-fit: contain;
 }
 
 /* 閉じるボタン */
@@ -161,3 +179,4 @@ body {
         padding: 30px;
     }
 }
+
