@@ -166,19 +166,23 @@ let currentIndex = 0;
 // 画像リスト
 const images = Array.from(document.querySelectorAll('.gallery-grid .item img'));
 
-// モーダル表示（クリックは image-wrap のみに統一）
+// モーダルを開く関数
+function openModal(src, index) {
+    const modal = document.getElementById('modal');
+    const modalImg = document.getElementById('modal-img');
+
+    modalImg.src = src;
+    currentIndex = index;
+
+    modal.style.display = 'flex';
+    setTimeout(() => modal.classList.add('show'), 10);
+}
+
+// カードクリックでモーダル表示
 document.querySelectorAll('.gallery-grid .item').forEach((item, index) => {
     item.addEventListener('click', function() {
         const img = this.querySelector('img');
         openModal(img.src, index);
-    });
-});
-
-        modal.style.display = 'block';
-        setTimeout(() => modal.classList.add('show'), 10);
-
-        document.getElementById('modal-img').src = img.src;
-        currentIndex = index;
     });
 });
 
@@ -220,12 +224,12 @@ function showPrevImage() {
 
 document.querySelector('.left-arrow').addEventListener('click', showPrevImage);
 document.querySelector('.right-arrow').addEventListener('click', showNextImage);
-	
-// キーボード操作（左右矢印で画像切り替え）
+
+// キーボード操作
 document.addEventListener('keydown', function(e) {
     const modal = document.getElementById('modal');
 
-    if (modal.style.display === 'block') {
+    if (modal.style.display === 'flex') {
         if (e.key === 'ArrowRight') showNextImage();
         if (e.key === 'ArrowLeft') showPrevImage();
         if (e.key === 'Escape') {
@@ -235,11 +239,9 @@ document.addEventListener('keydown', function(e) {
     }
 });
 
-// 背景クリックで閉じる（矢印は除外）
+// 背景クリックで閉じる
 document.getElementById('modal').addEventListener('click', function(e) {
-    if (
-        e.target.id === 'modal' // 背景そのもの
-    ) {
+    if (e.target.id === 'modal') {
         this.classList.remove('show');
         setTimeout(() => this.style.display = 'none', 300);
     }
