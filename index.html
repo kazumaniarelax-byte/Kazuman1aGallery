@@ -232,6 +232,18 @@ document.addEventListener('keydown', function(e) {
         }
     }
 });
+
+// 背景クリックで閉じる（矢印は除外）
+document.getElementById('modal').addEventListener('click', function(e) {
+    if (
+        e.target === this && 
+        !e.target.classList.contains('arrow')
+    ) {
+        this.classList.remove('show');
+        setTimeout(() => this.style.display = 'none', 300);
+    }
+});
+	
 </script>
 
 </body>
