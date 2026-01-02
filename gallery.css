@@ -1,0 +1,118 @@
+/* 全体設定 */
+body {
+    font-family: 'Lora', serif;
+}
+
+/* タイトル */
+.title {
+    text-align: center;
+    margin: 60px 0 40px;
+    font-size: 2.5rem;
+}
+
+/* カテゴリ */
+.category {
+    font-size: 1.6rem;
+    margin: 40px 40px 20px;
+    font-weight: bold;
+}
+
+/* ギャラリーグリッド */
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px;
+    padding: 0 40px;
+}
+
+/* 各アイテム（カード） */
+.item {
+    position: relative;
+    overflow: hidden;
+    border-radius: 10px;
+    aspect-ratio: 3 / 4; /* ← 縦長カードに統一 */
+}
+
+/* 画像を包むラッパ（保存防止＋高さ継承） */
+.image-wrap {
+    width: 100%;
+    height: 100%; /* ← これが超重要！ */
+    position: relative;
+}
+
+/* 画像 */
+.item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* ← 枠いっぱいに拡大してトリミング */
+    transition: transform .4s ease;
+}
+
+/* ホバー時のズーム */
+.item:hover img {
+    transform: scale(1.1);
+}
+
+/* オーバーレイ（タイトル・説明） */
+.overlay {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(transparent, rgba(0,0,0,0.7));
+    color: white;
+    opacity: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 20px;
+    transition: opacity .4s ease;
+}
+
+.item:hover .overlay {
+    opacity: 1;
+}
+
+/* 保存防止レイヤー */
+.protect-layer {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: transparent;
+    z-index: 5;
+}
+
+/* モーダル全体 */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 9999;
+    padding-top: 50px;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.9);
+}
+
+/* 閉じるボタン */
+.close {
+    position: absolute;
+    top: 20px;
+    right: 35px;
+    color: #fff;
+    font-size: 40px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+/* モーダル内の画像 */
+.modal-content {
+    display: block;
+    margin: auto;
+    max-width: 90%;
+    max-height: 90%;
+}
