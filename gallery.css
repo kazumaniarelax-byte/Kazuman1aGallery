@@ -139,7 +139,7 @@ body {
     padding: 20px;
     user-select: none;
     transition: color .2s ease;
-    z-index: 10000;
+    z-index: 10001; /* ← 高めでOK */
 }
 
 .arrow:hover {
@@ -161,17 +161,3 @@ body {
         padding: 30px;
     }
 }
-.arrow {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    font-size: 48px;
-    color: rgba(255,255,255,0.8);
-    cursor: pointer;
-    padding: 20px;
-    user-select: none;
-    z-index: 10001; /* ← ここ重要 */
-}
-
-
-
